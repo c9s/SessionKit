@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.10" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0        http://pear.php.net/dtd/tasks-1.0.xsd        http://pear.php.net/dtd/package-2.0        http://pear.php.net/dtd/package-2.0.xsd">
+  <name>SessionKit</name>
+  <channel>pear.corneltek.com</channel>
+  <summary>A micro framework for session</summary>
+  <description>A micro framework for session</description>
+  <lead>
+    <name>Yo-An Lin</name>
+    <user/>
+    <email>cornelius.howl@gmail.com</email>
+    <active>yes</active>
+  </lead>
+  <date>2012-03-14</date>
+  <time>21:08:18</time>
+  <version>
+    <release>0.1.1</release>
+    <api>0.1.1</api>
+  </version>
+  <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+  </stability>
+  <license>PHP</license>
+  <notes>-</notes>
+  <contents>
+    <dir name="/">
+      <file name="tests/Universal/Session/SessionTest.php" role="test" md5sum="a208ccaef8ce3200cf178a24fe19b7f8"/>
+      <file name="tests/bootstrap.php" role="test" md5sum="bca4c6cc10a138d0e22e365098c174d0"/>
+      <file name="tests/helpers.php" role="test" md5sum="aae3a65fac318e1871de47062f2e4096"/>
+      <file name="src/SessionKit/SaveHandler/MemcacheSaveHandler.php" role="php" md5sum="842a9bf68ba6a15632d627156bebbf54"/>
+      <file name="src/SessionKit/SaveHandler/RedisSaveHandler.php" role="php" md5sum="6e58fac0b714a262893ca6c9e996c2eb"/>
+      <file name="src/SessionKit/Session.php" role="php" md5sum="0bf1780c94f0d34987d36f9e03b8a45d"/>
+      <file name="src/SessionKit/State/CookieState.php" role="php" md5sum="3df1cb36d3bef237f57b8f40f149ad7a"/>
+      <file name="src/SessionKit/State/NativeState.php" role="php" md5sum="e340162436960ebba51be4539767e230"/>
+      <file name="src/SessionKit/Storage/MemcacheStorage.php" role="php" md5sum="56a0d7634cca3145760abca8c7676339"/>
+      <file name="src/SessionKit/Storage/MemoryStorage.php" role="php" md5sum="3e6773969ffa99bce9f9f6940095c280"/>
+      <file name="src/SessionKit/Storage/NativeStorage.php" role="php" md5sum="e4c1cfb9010b87fd99f5eacc7b78c55a"/>
+      <file name="src/SessionKit/Storage/RedisStorage.php" role="php" md5sum="a4753f14f690cf805e610b8006b51561"/>
+      <file name="src/SessionKit/Storage/StorageInterface.php" role="php" md5sum="644173651e50931ad8d58790e36feda4"/>
+    </dir>
+  </contents>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.3</min>
+      </php>
+      <pearinstaller>
+        <min>1.4</min>
+      </pearinstaller>
+      <package>
+        <name>Universal</name>
+        <channel>pear.corneltek.com</channel>
+        <min>0.0.0</min>
+      </package>
+    </required>
+  </dependencies>
+  <phprelease>
+    <filelist>
+      <install name="tests/Universal/Session/SessionTest.php" as="Universal/Session/SessionTest.php"/>
+      <install name="tests/bootstrap.php" as="bootstrap.php"/>
+      <install name="tests/helpers.php" as="helpers.php"/>
+      <install name="src/SessionKit/SaveHandler/MemcacheSaveHandler.php" as="SessionKit/SaveHandler/MemcacheSaveHandler.php"/>
+      <install name="src/SessionKit/SaveHandler/RedisSaveHandler.php" as="SessionKit/SaveHandler/RedisSaveHandler.php"/>
+      <install name="src/SessionKit/Session.php" as="SessionKit/Session.php"/>
+      <install name="src/SessionKit/State/CookieState.php" as="SessionKit/State/CookieState.php"/>
+      <install name="src/SessionKit/State/NativeState.php" as="SessionKit/State/NativeState.php"/>
+      <install name="src/SessionKit/Storage/MemcacheStorage.php" as="SessionKit/Storage/MemcacheStorage.php"/>
+      <install name="src/SessionKit/Storage/MemoryStorage.php" as="SessionKit/Storage/MemoryStorage.php"/>
+      <install name="src/SessionKit/Storage/NativeStorage.php" as="SessionKit/Storage/NativeStorage.php"/>
+      <install name="src/SessionKit/Storage/RedisStorage.php" as="SessionKit/Storage/RedisStorage.php"/>
+      <install name="src/SessionKit/Storage/StorageInterface.php" as="SessionKit/Storage/StorageInterface.php"/>
+    </filelist>
+  </phprelease>
+</package>
