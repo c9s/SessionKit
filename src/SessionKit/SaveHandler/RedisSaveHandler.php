@@ -1,5 +1,5 @@
 <?php 
-namespace Universal\Session\SaveHandler;
+namespace Session\SaveHandler;
 
 class RedisSaveHandler
 {

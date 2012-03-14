@@ -1,5 +1,5 @@
 <?php 
-namespace Universal\Session;
+namespace Session;
 use ArrayAccess;
 
 /**
@@ -19,7 +19,7 @@ class Session
     /**
      * contruct
      *
-     * @param array|Universal\Container\ObjectContainer $options default option
+     * @param array|Container\ObjectContainer $options default option
      *
      * options:
      *   can be ObjectContainer or array.
@@ -51,7 +51,7 @@ class Session
                 $this->storage = new Storage\NativeStorage;
             }
         }
-        elseif ( is_a( '\Universal\Container\ObjectContainer', $options ) ) 
+        elseif ( is_a( '\Container\ObjectContainer', $options ) ) 
         {
 
             /* use save handler or storage */
@@ -73,7 +73,7 @@ class Session
     }
 
     /**
-     * @return Universal\Session\State
+     * @return Session\State
      */
     public function getState()
     {
@@ -82,7 +82,7 @@ class Session
 
 
     /**
-     * @return Universal\Session\Storage
+     * @return Session\Storage
      */
     public function getStorage()
     {
@@ -91,7 +91,7 @@ class Session
 
 
     /**
-     * @return Universal\Session\SaveHandler
+     * @return Session\SaveHandler
      */
     public function getSaveHandler()
     {

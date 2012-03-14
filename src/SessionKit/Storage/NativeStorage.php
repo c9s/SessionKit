@@ -1,5 +1,5 @@
 <?php 
-namespace Universal\Session\Storage;
+namespace Session\Storage;
 
 /**
  * Native php session storage

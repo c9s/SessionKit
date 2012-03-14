@@ -1,5 +1,5 @@
 <?php 
-namespace Universal\Session\State;
+namespace Session\State;
 
 class NativeState
 {

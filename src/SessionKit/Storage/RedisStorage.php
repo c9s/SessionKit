@@ -1,5 +1,5 @@
 <?php 
-namespace Universal\Session\Storage;
+namespace Session\Storage;
 use Redis;
 
 class RedisStorage 
