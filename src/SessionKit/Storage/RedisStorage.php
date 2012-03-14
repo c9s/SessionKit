@@ -1,5 +1,5 @@
 <?php 
-namespace Session\Storage;
+namespace SessionKit\Storage;
 use Redis;
 
 class RedisStorage 

@@ -1,5 +1,5 @@
 <?php 
-namespace Session\SaveHandler;
+namespace SessionKit\SaveHandler;
 
 class MemcacheSaveHandler 
 {

@@ -1,5 +1,5 @@
 <?php 
-namespace Session\State;
+namespace SessionKit\State;
 use RuntimeException;
 
 class CookieState

@@ -1,5 +1,5 @@
 <?php 
-namespace Session\Storage;
+namespace SessionKit\Storage;
 
 class MemcacheStorage
     extends MemoryStorage

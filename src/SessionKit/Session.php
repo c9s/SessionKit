@@ -1,5 +1,5 @@
 <?php 
-namespace Session;
+namespace SessionKit;
 use ArrayAccess;
 
 /**
@@ -73,7 +73,7 @@ class Session
     }
 
     /**
-     * @return Session\State
+     * @return SessionKit\State
      */
     public function getState()
     {
@@ -82,7 +82,7 @@ class Session
 
 
     /**
-     * @return Session\Storage
+     * @return SessionKit\Storage
      */
     public function getStorage()
     {
@@ -91,7 +91,7 @@ class Session
 
 
     /**
-     * @return Session\SaveHandler
+     * @return SessionKit\SaveHandler
      */
     public function getSaveHandler()
     {
