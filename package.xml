@@ -10,27 +10,27 @@
     <email>cornelius.howl@gmail.com</email>
     <active>yes</active>
   </lead>
-  <date>2012-03-14</date>
-  <time>21:08:18</time>
+  <date>2012-03-21</date>
+  <time>19:07:27</time>
   <version>
-    <release>0.1.1</release>
-    <api>0.1.1</api>
+    <release>1.0.1</release>
+    <api>1.0.1</api>
   </version>
   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
+    <release>stable</release>
+    <api>stable</api>
   </stability>
   <license>PHP</license>
   <notes>-</notes>
   <contents>
     <dir name="/">
-      <file name="tests/Universal/Session/SessionTest.php" role="test" md5sum="a208ccaef8ce3200cf178a24fe19b7f8"/>
       <file name="tests/bootstrap.php" role="test" md5sum="bca4c6cc10a138d0e22e365098c174d0"/>
       <file name="tests/helpers.php" role="test" md5sum="aae3a65fac318e1871de47062f2e4096"/>
+      <file name="tests/Universal/Session/SessionTest.php" role="test" md5sum="0fee37f0706255972ed5971613fa5522"/>
       <file name="src/SessionKit/SaveHandler/MemcacheSaveHandler.php" role="php" md5sum="842a9bf68ba6a15632d627156bebbf54"/>
       <file name="src/SessionKit/SaveHandler/RedisSaveHandler.php" role="php" md5sum="6e58fac0b714a262893ca6c9e996c2eb"/>
       <file name="src/SessionKit/Session.php" role="php" md5sum="0bf1780c94f0d34987d36f9e03b8a45d"/>
-      <file name="src/SessionKit/State/CookieState.php" role="php" md5sum="3df1cb36d3bef237f57b8f40f149ad7a"/>
+      <file name="src/SessionKit/State/CookieState.php" role="php" md5sum="e880f7283d110badbcb30e86e76c2a4d"/>
       <file name="src/SessionKit/State/NativeState.php" role="php" md5sum="e340162436960ebba51be4539767e230"/>
       <file name="src/SessionKit/Storage/MemcacheStorage.php" role="php" md5sum="56a0d7634cca3145760abca8c7676339"/>
       <file name="src/SessionKit/Storage/MemoryStorage.php" role="php" md5sum="3e6773969ffa99bce9f9f6940095c280"/>
@@ -56,9 +56,9 @@
   </dependencies>
   <phprelease>
     <filelist>
-      <install name="tests/Universal/Session/SessionTest.php" as="Universal/Session/SessionTest.php"/>
       <install name="tests/bootstrap.php" as="bootstrap.php"/>
       <install name="tests/helpers.php" as="helpers.php"/>
+      <install name="tests/Universal/Session/SessionTest.php" as="Universal/Session/SessionTest.php"/>
       <install name="src/SessionKit/SaveHandler/MemcacheSaveHandler.php" as="SessionKit/SaveHandler/MemcacheSaveHandler.php"/>
       <install name="src/SessionKit/SaveHandler/RedisSaveHandler.php" as="SessionKit/SaveHandler/RedisSaveHandler.php"/>
       <install name="src/SessionKit/Session.php" as="SessionKit/Session.php"/>
