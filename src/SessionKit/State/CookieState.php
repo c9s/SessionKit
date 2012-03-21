@@ -131,7 +131,7 @@ class CookieState
     {
 
         if( $this->sidGenerator ) {
-            if( callable( $this->sidGenerator ) ) {
+            if( is_callable( $this->sidGenerator ) ) {
                 return $this->sidGenerator();
             } else {
                 throw new RuntimeException('sid generator is not callable.');
@@ -148,7 +148,7 @@ class CookieState
     public function validateSid($sid)
     {
         if( $this->sidValidator ) {
-            if( callable($this->sidValidator) ) {
+            if( is_callable($this->sidValidator) ) {
                 return $this->sidValidator($sid);
             } else {
                 throw new RuntimeException('sid validator is not callable.');

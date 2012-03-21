@@ -8,9 +8,9 @@ class SessionTest extends PHPUnit_Framework_TestCase
 {
     function testSession()
     {
-        $session = new \Universal\Session\Session(array(  
-            'state'   => new \Universal\Session\State\CookieState,
-            'storage' => new \Universal\Session\Storage\MemcacheStorage,
+        $session = new \SessionKit\Session(array(  
+            'state'   => new \SessionKit\State\CookieState,
+            'storage' => new \SessionKit\Storage\MemcacheStorage,
         ));
         $counter = $session->get( 'counter' );
         $session->set( 'counter' , ++$counter );
@@ -19,9 +19,9 @@ class SessionTest extends PHPUnit_Framework_TestCase
 
     function testNativeSession()
     {
-        @$session = new \Universal\Session\Session(array(  
-            'state'   => new \Universal\Session\State\NativeState,
-            'storage' => new \Universal\Session\Storage\NativeStorage,
+        @$session = new \SessionKit\Session(array(  
+            'state'   => new \SessionKit\State\NativeState,
+            'storage' => new \SessionKit\Storage\NativeStorage,
         ));
         $counter = $session->get( 'counter' );
         $session->set( 'counter' , ++$counter );
