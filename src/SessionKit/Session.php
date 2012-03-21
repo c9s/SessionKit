@@ -98,16 +98,18 @@ class Session
         return $this->saveHandler;
     }
 
-    public function set($name,$value)
-    {
-        return $this->storage->set( $name, $value );
-    }
 
-    public function get($name)
-    {
-        return $this->storage->get( $name );
-    }
 
+
+
+    public function __call($m,$a)
+    {
+        if( method_exists($this->storage,$m) ) {
+            return call_user_func_array( array($this->storage,$m), $a );
+        }
+        throw new Exception("method $m not found.");
+    }
+        
     public function __set($name,$value)
     {
         return $this->storage->set( $name, $value );
