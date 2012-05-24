@@ -6,8 +6,10 @@ use Exception;
 
 class SessionTest extends PHPUnit_Framework_TestCase
 {
-    function testSession()
+    function testMemcacheSession()
     {
+        if( ! extension_loaded('memcache') ) 
+            skip('memcache extension is required.');
         $session = new \SessionKit\Session(array(  
             'state'   => new \SessionKit\State\CookieState,
             'storage' => new \SessionKit\Storage\MemcacheStorage,
