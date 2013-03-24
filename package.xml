@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.10" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0        http://pear.php.net/dtd/tasks-1.0.xsd        http://pear.php.net/dtd/package-2.0        http://pear.php.net/dtd/package-2.0.xsd">
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.10" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0               http://pear.php.net/dtd/tasks-1.0.xsd               http://pear.php.net/dtd/package-2.0               http://pear.php.net/dtd/package-2.0.xsd">
   <name>SessionKit</name>
   <channel>pear.corneltek.com</channel>
   <summary>A micro framework for session</summary>
@@ -10,8 +10,8 @@
     <email>cornelius.howl@gmail.com</email>
     <active>yes</active>
   </lead>
-  <date>2012-03-21</date>
-  <time>19:12:05</time>
+  <date>2013-03-24</date>
+  <time>16:03:44</time>
   <version>
     <release>1.0.2</release>
     <api>1.0.2</api>
@@ -24,9 +24,6 @@
   <notes>-</notes>
   <contents>
     <dir name="/">
-      <file name="tests/bootstrap.php" role="test" md5sum="bca4c6cc10a138d0e22e365098c174d0"/>
-      <file name="tests/helpers.php" role="test" md5sum="aae3a65fac318e1871de47062f2e4096"/>
-      <file name="tests/Universal/Session/SessionTest.php" role="test" md5sum="0fee37f0706255972ed5971613fa5522"/>
       <file name="src/SessionKit/SaveHandler/MemcacheSaveHandler.php" role="php" md5sum="842a9bf68ba6a15632d627156bebbf54"/>
       <file name="src/SessionKit/SaveHandler/RedisSaveHandler.php" role="php" md5sum="6e58fac0b714a262893ca6c9e996c2eb"/>
       <file name="src/SessionKit/Session.php" role="php" md5sum="14c7708e5ae945a155b6781ba5173a9e"/>
@@ -47,18 +44,10 @@
       <pearinstaller>
         <min>1.4</min>
       </pearinstaller>
-      <package>
-        <name>Universal</name>
-        <channel>pear.corneltek.com</channel>
-        <min>0.0.0</min>
-      </package>
     </required>
   </dependencies>
   <phprelease>
     <filelist>
-      <install name="tests/bootstrap.php" as="bootstrap.php"/>
-      <install name="tests/helpers.php" as="helpers.php"/>
-      <install name="tests/Universal/Session/SessionTest.php" as="Universal/Session/SessionTest.php"/>
       <install name="src/SessionKit/SaveHandler/MemcacheSaveHandler.php" as="SessionKit/SaveHandler/MemcacheSaveHandler.php"/>
       <install name="src/SessionKit/SaveHandler/RedisSaveHandler.php" as="SessionKit/SaveHandler/RedisSaveHandler.php"/>
       <install name="src/SessionKit/Session.php" as="SessionKit/Session.php"/>
