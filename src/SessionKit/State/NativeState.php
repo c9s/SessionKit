@@ -9,6 +9,8 @@ class NativeState
         if ( ! isset($_SESSION) ) {
             if ( isset($_REQUEST['session_expiry']) ) {
                 session_set_cookie_params(intval($_REQUEST['session_expiry'])); // 1 month
+            } else {
+                session_set_cookie_params(3600 * 24 * 30); // 2 month
             }
             session_start();
             if ( isset($_REQUEST['session_expiry']) ) {
