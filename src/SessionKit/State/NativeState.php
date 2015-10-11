@@ -4,27 +4,29 @@ namespace SessionKit\State;
 class NativeState
 {
 
-    function __construct()
+    public function __construct()
     {
-        if ( ! isset($_SESSION) ) {
-            if ( isset($_REQUEST['session_expiry']) ) {
-                session_set_cookie_params(intval($_REQUEST['session_expiry'])); // 1 month
-            } else {
-                session_set_cookie_params(3600 * 24 * 30); // 2 month
+        if (! isset($_SESSION) ) {
+            @session_start();
+            /*
+            if (isset($_REQUEST['session_expiry']) ) {
+                @setcookie(session_name(),session_id(),time()+ intval($_REQUEST['session_expiry']) );
             }
-            session_start();
-            if ( isset($_REQUEST['session_expiry']) ) {
-                setcookie(session_name(),session_id(),time()+ intval($_REQUEST['session_expiry']) );
-            }
+            */
         }
     }
 
-    function getSid()
+    public function setCookieParams($seconds)
+    {
+        session_set_cookie_params($seconds);
+    }
+
+    public function getSid()
     {
         return session_id();
     }
 
-    function generateSid()
+    public function generateSid()
     {
         return session_regenerate_id();
     }
