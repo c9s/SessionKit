@@ -8,18 +8,18 @@ class CookieState
     /**
      * @var array cookie parameter array
      */
-    public $cookieParams;
+    protected $cookieParams;
 
     /**
      * @var string session key
      */
-    public $sessionKey;
+    protected $sessionKey;
 
 
     /**
      * @var string session id string
      */
-    public $sessionId;
+    protected $sessionId;
 
     /**
      * @var callable sid generator
@@ -33,28 +33,26 @@ class CookieState
 
 
     /**
-     * options:
      *
-     *   - cookie_id: 
-     *   - cookie_params:
-     *   - sid_generator: callable, return session id string
-     *   - sid_validator: callable, validate session id string
+     * @param string $sessionKey
+     * @param array $extraCookieParams
      */
-    function __construct($options = array())
+    public function __construct($sessionKey = 'ses', array $extraCookieParams = null)
     {
-        $this->sessionKey = isset($options['cookie_id']) ? $options['cookie_id'] : 'session';
+        $this->sessionKey = $sessionKey;
         // $this->secret     = isset($options['secret']) ? $options['secret'] : md5(microtime());
 
-        if( isset($options['sid_generator']) ) {
+        /*
+        if (isset($options['sid_generator'])) {
             $this->sidGenerator = $options['sid_generator'];
         }
-        if( isset($options['sid_validator']) ) {
+        if (isset($options['sid_validator'])) {
             $this->sidValidator = $options['sid_validator'];
         }
-
+        */
 
         /* default cookie param */
-        $cookieParams = array(
+        $defaultCookieParams = array(
             'path'     => '/',
             'expire'   => 0,
             'domain'   => null, //
@@ -62,16 +60,18 @@ class CookieState
             'httponly' => false, // false,
         );
 
-        $this->cookieParams = isset( $options['cookie_params'] ) ? 
-            array_merge( $cookieParams , (array) $options['cookie_params'] ) :
-            $cookieParams;
+        $this->cookieParams = $extraCookieParams 
+            ?  array_merge($defaultCookieParams, $extraCookieParams) 
+            : $defaultCookieParams;
 
         $this->sessionId = $this->getSid();
-        if( ! $this->validateSid($this->sessionId) )
-            throw new Exception( "Invalid Session Id" );
 
-        if( ! isset($_SERVER['argv']) ) {
-            $this->write( $this->sessionId );
+        if (!$this->validateSid($this->sessionId)) {
+            throw new Exception( "Invalid Session Id" );
+        }
+
+        if (!isset($_SERVER['argv'])) {
+            $this->write($this->sessionId);
         }
     }
 
@@ -97,20 +97,21 @@ class CookieState
         $this->setSessionCookie(array( 'expire' => time() ));
     }
 
-    public function setSessionCookie($config = null)
+    public function setSessionCookie(array $config = null)
     {
-        if( $config )
-            $config = array_merge( $this->cookieParams , $config );
+        if ($config) {
+            $this->cookieParams = array_merge($this->cookieParams , $config );
+        }
 
         // bool setcookie ( string $name [, string $value [, int $expire = 0 [, 
         //    string $path [, string $domain [, bool $secure = false [, bool 
         //    $httponly = false ]]]]]] )
-        setcookie( $this->sessionKey , $this->sessionId, 
-            @$config['expire'],
-            @$config['path'],
-            @$config['domain'],
-            @$config['secure'],
-            @$config['httponly']
+        setcookie($this->sessionKey, $this->sessionId, 
+            @$this->cookieParams['expire'],
+            @$this->cookieParams['path'],
+            @$this->cookieParams['domain'],
+            @$this->cookieParams['secure'],
+            @$this->cookieParams['httponly']
         );
     }
 
@@ -129,16 +130,9 @@ class CookieState
      */
     public function generateSid()
     {
-
-        if( $this->sidGenerator ) {
-            if( is_callable( $this->sidGenerator ) ) {
-                return $this->sidGenerator();
-            } else {
-                throw new RuntimeException('sid generator is not callable.');
-            }
+        if ($this->sidGenerator) {
+            return call_user_func($this->sidGenerator);
         }
-
-
         return sha1( rand() . microtime() );
     }
 
@@ -147,14 +141,21 @@ class CookieState
      */
     public function validateSid($sid)
     {
-        if( $this->sidValidator ) {
-            if( is_callable($this->sidValidator) ) {
-                return $this->sidValidator($sid);
-            } else {
-                throw new RuntimeException('sid validator is not callable.');
-            }
+        if ($this->sidValidator) {
+            return call_user_func($this->sidValidator, $sid);
         }
         return preg_match( '/\A[0-9a-f]{40}\Z/' , $sid );
+    }
+
+
+    public function setValidator(callable $validator)
+    {
+        $this->sidValidator = $validator;
+    }
+
+    public function setGenerator(callable $generator)
+    {
+        $this->sidGenerator = $generator;
     }
 
 
@@ -168,5 +169,4 @@ class CookieState
         // return hash_hmac('sha256', $data , $this->secret );
     }
     */
-
 }

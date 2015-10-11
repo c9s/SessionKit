@@ -34,7 +34,4 @@ class MemoryStorage
     {
         unset($this->_data[ $name ]);
     }
-
-
 }
-

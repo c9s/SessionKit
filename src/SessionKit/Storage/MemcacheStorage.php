@@ -1,5 +1,6 @@
 <?php 
 namespace SessionKit\Storage;
+use Memcache;
 
 class MemcacheStorage
     extends MemoryStorage
@@ -14,10 +15,10 @@ class MemcacheStorage
      *    [, bool $persistent [, int $weight [, int $timeout [, int $retry_interval [, 
      *    bool $status [, callback $failure_callback [, int $timeoutms ]]]]]]]] )
      */
-    function __construct($host = '127.0.0.1', $port = 11211, 
-        $persistent = true, 
+    public function __construct($host = '127.0.0.1', $port = 11211,
+        $persistent = true,
         $weight = 1,
-        $timeout = 1 )
+        $timeout = 1)
     {
         /*
          Another example:
@@ -25,8 +26,8 @@ class MemcacheStorage
             ini_set('session.save_handler', 'memcache');
             ini_set('session.save_path', $session_save_path);
         */
-        $this->connection = new \Memcache;
-        $this->connection->addServer( $host, $port, $persistent, $weight, $timeout );
+        $this->connection = new Memcache;
+        $this->connection->addServer($host, $port, $persistent, $weight, $timeout);
     }
 
     public function getConnection()
@@ -42,7 +43,7 @@ class MemcacheStorage
     public function load($sessionId)
     {
         $this->sessionId = $sessionId;
-        $data = $this->connection->get( $sessionId ) ?: array();
+        $data = $this->connection->get($sessionId) ?: array();
         $this->setData( $data );
     }
 
@@ -51,7 +52,7 @@ class MemcacheStorage
      */
     public function sync()
     {
-        $this->connection->set( $this->sessionId , $this->_data );
+        $this->connection->set($this->sessionId, $this->_data);
     }
 
     public function destroy()

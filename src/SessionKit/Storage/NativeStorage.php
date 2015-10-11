@@ -5,8 +5,7 @@ namespace SessionKit\Storage;
  * Native php session storage
  *
  */
-class NativeStorage
-    implements StorageInterface
+class NativeStorage implements StorageInterface
 {
 
     public function get($name)
