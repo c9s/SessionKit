@@ -6,13 +6,8 @@ class NativeState
 
     public function __construct()
     {
-        if (! isset($_SESSION) ) {
+        if (!isset($_SESSION)) {
             @session_start();
-            /*
-            if (isset($_REQUEST['session_expiry']) ) {
-                @setcookie(session_name(),session_id(),time()+ intval($_REQUEST['session_expiry']) );
-            }
-            */
         }
     }
 
@@ -30,7 +25,4 @@ class NativeState
     {
         return session_regenerate_id();
     }
-
-
 }
-
