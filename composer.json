@@ -1,7 +1,7 @@
 {
     "name": "corneltek/sessionkit",
     "version": "1.0.3",
-    "autoload": { "psr-4": { "SessionKit\\": "src/SessionKit/" } },
+    "autoload": { "psr-4": { "SessionKit\\": "src/" } },
     "require-dev": {
         "corneltek/phpunit-testmore": "dev-master"
     }
